@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrGreen.Api", "src\MrGreen.Api\MrGreen.Api.csproj", "{2AEE8337-C09E-46EB-BDF5-180E4AC23AF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{352DD97A-927C-4526-B0C2-2AEAE5A9E01F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- Domain", "3- Domain", "{8F17EE52-86D5-4554-8E02-AEC4264472BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4- Infra", "4- Infra", "{7FA91EC0-C7CA-4EE7-9B4D-005ECE1902AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{7014E5FB-B10F-4067-BA33-B5D7B7B26170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrGreen.Domain", "src\MrGreen.Domain\MrGreen.Domain.csproj", "{68A6E478-17A9-4564-90AE-C3E30D72323C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Application", "2- Application", "{B02AAC0A-D8D4-4C40-9B6D-100CEEE0CB01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5- Tests", "5- Tests", "{F73DF342-0115-4849-8835-160B14871FE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AEE8337-C09E-46EB-BDF5-180E4AC23AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEE8337-C09E-46EB-BDF5-180E4AC23AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEE8337-C09E-46EB-BDF5-180E4AC23AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEE8337-C09E-46EB-BDF5-180E4AC23AF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A6E478-17A9-4564-90AE-C3E30D72323C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A6E478-17A9-4564-90AE-C3E30D72323C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A6E478-17A9-4564-90AE-C3E30D72323C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A6E478-17A9-4564-90AE-C3E30D72323C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AEE8337-C09E-46EB-BDF5-180E4AC23AF0} = {352DD97A-927C-4526-B0C2-2AEAE5A9E01F}
+		{7014E5FB-B10F-4067-BA33-B5D7B7B26170} = {7FA91EC0-C7CA-4EE7-9B4D-005ECE1902AC}
+		{68A6E478-17A9-4564-90AE-C3E30D72323C} = {8F17EE52-86D5-4554-8E02-AEC4264472BB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBAD98B4-510B-4CB4-8818-F9A8F20551B0}
+	EndGlobalSection
+EndGlobal
