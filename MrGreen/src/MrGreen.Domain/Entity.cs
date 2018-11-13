@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MrGreen.Domain.Models
+namespace MrGreen.Domain
 {
     public abstract class Entity<T> : AbstractValidator<T> where T : Entity<T>
     {

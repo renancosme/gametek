@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MrGreen.Domain.Interfaces
+namespace MrGreen.Application.Repository
 {
     public interface ICustormerRepository : IRepository<Customer>
     {

@@ -21,15 +21,14 @@ namespace MrGreen.Domain.Models
         {
         }
 
-        public string FirstName { get; private set; }
+        public string FirstName { get; set; }
 
-        public string LastName { get; private set; }
+        public string LastName { get; set; }
 
-        public string Address { get; private set; }
+        public string Address { get; set; }
 
-        public string PersonalNumber { get; private set; }
-
-		
+        public string PersonalNumber { get; set; }
+        		
         #region Validations
 
         public override bool IsValid()
@@ -74,8 +73,7 @@ namespace MrGreen.Domain.Models
                 .NotEmpty()
                 .WithMessage("The Personal Number should be informed")
                 .Length(9, 10).WithMessage("The Personal Number should be between 9 and 10 characters");
-        }
-		
+        }		
 
         #endregion
     }
