@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unified.Presentation", "Unified.Presentation\Unified.Presentation.csproj", "{C6AAED99-766F-4700-A67F-C1BE626FBCC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Presentation", "1- Presentation", "{A90BAEF4-EECD-4E91-8D83-EA79B7752224}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- Infra", "3- Infra", "{5A9E9BFD-1E65-45E1-B515-8702A22CD556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unified.Infra.MrgreenAdapter", "..\Unified.Infra.MrgreenAdapter\Unified.Infra.MrgreenAdapter.csproj", "{B0FB215F-081F-4A70-B6DB-8FB8094FD3AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Domain", "2- Domain", "{76333228-FEBB-45C6-9909-9834F44B21B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unified.Domain", "..\Unified.Domain\Unified.Domain.csproj", "{3905A95C-67BE-42B6-B240-EA02FEDDA769}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Adapters", "3.1 - Adapters", "{5163924B-E072-4BDF-8C10-81E8129FDA55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unified.Infra.RedbetAdapter", "..\Unified.Infra.RedbetAdapter\Unified.Infra.RedbetAdapter.csproj", "{ECF666C9-8C46-4208-A7F0-4A750FCADAA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6AAED99-766F-4700-A67F-C1BE626FBCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AAED99-766F-4700-A67F-C1BE626FBCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AAED99-766F-4700-A67F-C1BE626FBCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AAED99-766F-4700-A67F-C1BE626FBCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0FB215F-081F-4A70-B6DB-8FB8094FD3AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0FB215F-081F-4A70-B6DB-8FB8094FD3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0FB215F-081F-4A70-B6DB-8FB8094FD3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0FB215F-081F-4A70-B6DB-8FB8094FD3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3905A95C-67BE-42B6-B240-EA02FEDDA769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3905A95C-67BE-42B6-B240-EA02FEDDA769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3905A95C-67BE-42B6-B240-EA02FEDDA769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3905A95C-67BE-42B6-B240-EA02FEDDA769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF666C9-8C46-4208-A7F0-4A750FCADAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF666C9-8C46-4208-A7F0-4A750FCADAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF666C9-8C46-4208-A7F0-4A750FCADAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF666C9-8C46-4208-A7F0-4A750FCADAA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C6AAED99-766F-4700-A67F-C1BE626FBCC0} = {A90BAEF4-EECD-4E91-8D83-EA79B7752224}
+		{B0FB215F-081F-4A70-B6DB-8FB8094FD3AF} = {5163924B-E072-4BDF-8C10-81E8129FDA55}
+		{3905A95C-67BE-42B6-B240-EA02FEDDA769} = {76333228-FEBB-45C6-9909-9834F44B21B3}
+		{5163924B-E072-4BDF-8C10-81E8129FDA55} = {5A9E9BFD-1E65-45E1-B515-8702A22CD556}
+		{ECF666C9-8C46-4208-A7F0-4A750FCADAA7} = {5163924B-E072-4BDF-8C10-81E8129FDA55}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4BDE136-07F7-4F88-B584-71700B53FBCD}
+	EndGlobalSection
+EndGlobal
