@@ -1,31 +1,100 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
+using Unified.Domain.Exceptions;
+using Unified.Domain.Interfaces;
 using Unified.Domain.Model;
-using Unified.Domain.Services;
 
 namespace Unified.Infra.MrgreenAdapter
 {
-    public class MrgreenAdapter : IMrgreenCustomerService
+    public class MrgreenAdapter : IMrgreenAdapter
     {
-        public void AddCustomer(MrgreenCustomer Customer)
+        private readonly IMrgreenAdapterSettings _mrgreenAdapterSettings;
+
+        public MrgreenAdapter(IMrgreenAdapterSettings mrgreenAdapterSettings)
         {
-            throw new NotImplementedException();
+            _mrgreenAdapterSettings = mrgreenAdapterSettings;
+        }
+
+        public void AddCustomer(MrgreenCustomer customer)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
+                var json = JsonConvert.SerializeObject(customer);
+                var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = httpClient.PostAsync($"api/customer/", stringContent).Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    throw new DomainException("Client can not be null.");
+                }
+            }
+        }
+
+        public IEnumerable<MrgreenCustomer> GetAll()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
+                var response = httpClient.GetAsync($"api/customer/").Result;
+                var data = response.Content.ReadAsStringAsync().Result;
+                
+                return JsonConvert.DeserializeObject<IEnumerable<MrgreenCustomer>>(data);
+            }
         }
 
         public MrgreenCustomer GetCustomer(Guid customerId)
         {
-            throw new NotImplementedException();
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
+                var response = httpClient.GetAsync($"api/customer/{customerId}").Result;
+                var data = response.Content.ReadAsStringAsync().Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    throw new DomainException(data);
+                }
+
+                return JsonConvert.DeserializeObject<MrgreenCustomer>(data);                
+            }
         }
 
         public void RemoveCustomer(Guid customerId)
         {
-            throw new NotImplementedException();
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
+                var response = httpClient.DeleteAsync($"api/customer/{customerId}").Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    throw new DomainException("Client not found.");
+                }
+            }
         }
 
-        public void UpdateCustomer(MrgreenCustomer Customer)
+        public void UpdateCustomer(MrgreenCustomer customer)
         {
-            throw new NotImplementedException();
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
+                var json = JsonConvert.SerializeObject(customer);
+                var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = httpClient.PutAsync($"api/customer/", stringContent).Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    throw new DomainException("Client not found.");
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    throw new DomainException("Client can not be null.");
+                }
+            }            
         }
     }
 }

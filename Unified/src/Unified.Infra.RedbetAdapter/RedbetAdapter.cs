@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using Unified.Domain.Model;
-using Unified.Domain.Services;
+using Unified.Domain.Interfaces;
 
 namespace Unified.Infra.RedbetAdapter
 {
-    public class RedbetAdapter : IRedbetCustomerService
+    public class RedbetAdapter : IRedbetAdapeter
     {
-        public void AddCustomer(RedbetCustomer Customer)
+        public void AddCustomer(RedbetCustomer customer)
         {
             throw new NotImplementedException();
         }
@@ -24,7 +24,7 @@ namespace Unified.Infra.RedbetAdapter
             throw new NotImplementedException();
         }
 
-        public void UpdateCustomer(RedbetCustomer Customer)
+        public void UpdateCustomer(RedbetCustomer customer)
         {
             throw new NotImplementedException();
         }

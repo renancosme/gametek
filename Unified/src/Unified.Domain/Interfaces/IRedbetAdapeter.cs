@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using Unified.Domain.Model;
 
-namespace Unified.Domain.Services
+namespace Unified.Domain.Interfaces
 {
-    public interface IRedbetCustomerService
+    public interface IRedbetAdapeter
     {
         RedbetCustomer GetCustomer(Guid customerId);
 
-        void AddCustomer(RedbetCustomer Customer);
+        void AddCustomer(RedbetCustomer customer);
 
-        void UpdateCustomer(RedbetCustomer Customer);
+        void UpdateCustomer(RedbetCustomer customer);
 
         void RemoveCustomer(Guid customerId);
     }

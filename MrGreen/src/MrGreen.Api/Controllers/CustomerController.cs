@@ -18,6 +18,19 @@ namespace MrGreen.Api.Controllers
             _eventoAppService = eventoAppService;
         }
 
+        // GET api/customers/
+        /// <summary>
+        /// Get a list of Customers.
+        /// </summary>
+        /// <response code="200">Returns a list of Customers</response>
+        [ProducesResponseType(200)]
+        [HttpGet()]
+        public ActionResult Get()
+        {
+            var customers = _eventoAppService.GetAll();
+            return Ok(customers);
+        }
+
         // GET api/customers/5
         /// <summary>
         /// Get a specific Customer.

@@ -32,7 +32,20 @@ namespace MrGreen.Application.Services
 
             return new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName, customer.Address, customer.PersonalNumber);
         }
-        
+
+        public IEnumerable<CustomerViewModel> GetAll()
+        {
+            var customers = _customerRepository.GetAll();
+
+            var customersToReturn = new List<CustomerViewModel>();
+            foreach (var customer in customers)
+            {
+                customersToReturn.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName, customer.Address, customer.PersonalNumber));
+            }
+
+            return customersToReturn;
+        }
+
         public CustomerViewModel GetById(Guid id)
         {
             var customer = _customerRepository.GetById(id);

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Unified.Domain.Interfaces;
+using Unified.Infra.MrgreenAdapter;
 
 namespace Unified.Presentation
 {
@@ -33,6 +35,13 @@ namespace Unified.Presentation
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<IMrgreenAdapterSettings>(c => new MrgreenAdapterSettings(
+                    Configuration.GetValue<string>("MrgreenUrl")
+                ));
+
+            services.AddScoped<IMrgreenAdapter, MrgreenAdapter>();
+            //services.AddScoped<IRedbetAdapter, RedbetAdapter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +65,7 @@ namespace Unified.Presentation
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Customer}/{action=Index}/{id?}");
             });
         }
     }

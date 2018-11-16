@@ -4,6 +4,7 @@ using MrGreen.Api.Controllers;
 using MrGreen.Application.Services.Interfaces;
 using MrGreen.Application.ViewModels;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace MrGreen.Tests.API
@@ -60,6 +61,36 @@ namespace MrGreen.Tests.API
             Assert.IsType<CreatedAtActionResult>(result);
             var createdResult = result as CreatedAtActionResult;
             Assert.Equal(customerGuid, createdResult.RouteValues["id"]);            
+        }
+
+        [Fact]
+        public void Get_WhenCalled_ReturnsOkResult()
+        {
+            // Arrange
+            var customersToReturn = new List<CustomerViewModel>();
+            customersToReturn.Add(
+                new CustomerViewModel
+                {
+                    FirstName = "Cliente A",
+                    LastName = "Last name A",
+                    Address = "Avenue A",
+                    PersonalNumber = "0508851234"
+                });
+            customersToReturn.Add(
+                new CustomerViewModel
+                {
+                    FirstName = "Cliente B",
+                    LastName = "Last name B",
+                    Address = "Avenue B",
+                    PersonalNumber = "0101874321"
+                });
+            _mockCustomerAppService.Setup(c => c.GetAll()).Returns(customersToReturn);
+
+            // Act
+            var okResult = _customerController.Get();
+
+            // Assert
+            Assert.IsType<OkObjectResult>(okResult);
         }
 
         [Fact]
