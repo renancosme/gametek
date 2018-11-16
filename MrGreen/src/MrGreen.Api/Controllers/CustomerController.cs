@@ -28,7 +28,7 @@ namespace MrGreen.Api.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [HttpGet("{id}")]
-        public ActionResult<string> Get(Guid id)
+        public ActionResult Get(Guid id)
         {
             var customer = _eventoAppService.GetById(id);
 
@@ -41,22 +41,22 @@ namespace MrGreen.Api.Controllers
         /// <summary>
         /// Creates a Customer.
         /// </summary>
-        /// <param name="customerViewModel">The Customer to create</param>
+        /// <param name="createCustomerViewModel">The Customer to create</param>
         /// <response code="201">Returns the newly created Customer</response>
         /// <response code="400">If the customerViewModel is null</response> 
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(typeof(ValidationResult), 400)]
         [HttpPost]
-        public ActionResult Post([FromBody] CustomerViewModel customerViewModel)
+        public ActionResult Post([FromBody] CreateCustomerViewModel createCustomerViewModel)
         {
             try
             {
-                if (customerViewModel == null) return BadRequest();
+                if (createCustomerViewModel == null) return BadRequest();
 
-                _eventoAppService.Add(customerViewModel);
+                var newCustomerViewModel = _eventoAppService.Add(createCustomerViewModel);
 
-                return CreatedAtRoute("Get", new { id = customerViewModel.Id }, customerViewModel);
+                return CreatedAtAction("Get", new { id = newCustomerViewModel.Id }, newCustomerViewModel);
             }
             catch (DomainException ex)
             {
@@ -96,6 +96,8 @@ namespace MrGreen.Api.Controllers
         /// <param name="id">The Customer Id to delete</param> 
         /// <response code="204">Customer deleted</response> 
         /// <response code="404">Customer not found</response> 
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
         [HttpDelete("{id}")]
         public ActionResult Delete(Guid id)
         {

@@ -17,24 +17,28 @@ namespace MrGreen.Application.Services
             _customerRepository = customerRepository;
         }
 
-        public void Add(CustomerViewModel customerViewModel)
+        public CustomerViewModel Add(CreateCustomerViewModel createCustomerViewModel)
         {
             var customer = new Domain.Models.Customer(
-                                customerViewModel.FirstName,
-                                customerViewModel.LastName,
-                                customerViewModel.Address,
-                                customerViewModel.PersonalNumber);
+                                createCustomerViewModel.FirstName,
+                                createCustomerViewModel.LastName,
+                                createCustomerViewModel.Address,
+                                createCustomerViewModel.PersonalNumber);
 
-            // Only to initial tests
             if (!customer.IsValid()) throw new DomainException(customer.ValidationResult);
 
             _customerRepository.Add(customer);
-            // Commit pending for all operations
+            _customerRepository.SaveChanges();
+
+            return new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName, customer.Address, customer.PersonalNumber);
         }
         
         public CustomerViewModel GetById(Guid id)
         {
             var customer = _customerRepository.GetById(id);
+
+            if (customer == null) return null;
+
             return new CustomerViewModel
                        {
                            Id = customer.Id,
@@ -48,6 +52,7 @@ namespace MrGreen.Application.Services
         public void Remove(Guid id)
         {
             _customerRepository.Remove(id);
+            _customerRepository.SaveChanges();
         }
 
         public void Update(CustomerViewModel customerViewModel)
@@ -58,11 +63,11 @@ namespace MrGreen.Application.Services
             customer.LastName = customerViewModel.LastName;
             customer.Address = customerViewModel.Address;
             customer.PersonalNumber = customerViewModel.PersonalNumber;
-
-            // Only to initial tests
+                        
             if (!customer.IsValid()) throw new DomainException(customer.ValidationResult);
 
             _customerRepository.Update(customer);
+            _customerRepository.SaveChanges();
         }
     }
 }

@@ -32,23 +32,33 @@ namespace MrGreen.Tests.API
         [Fact]
         public void Add_Customer_ReturnsCreatedResponse()
         {
-            // Arrange            
-            var customerGuid = Guid.NewGuid();
-            var customerViewModel = new CustomerViewModel
+            // Arrange
+            var createCustomerViewModel = new CreateCustomerViewModel
             {
-                Id = customerGuid,
                 FirstName = "Cliente A",
                 LastName = "Last name",
                 Address = "Avenue A",
                 PersonalNumber = "0508851234"
             };
+
+            var customerGuid = Guid.NewGuid();
+            var customerViewModel = new CustomerViewModel
+            {
+                Id = customerGuid,
+                FirstName = createCustomerViewModel.FirstName,
+                LastName = createCustomerViewModel.LastName,
+                Address = createCustomerViewModel.Address,
+                PersonalNumber = createCustomerViewModel.PersonalNumber
+            };
+
+            _mockCustomerAppService.Setup(c => c.Add(createCustomerViewModel)).Returns(customerViewModel);
             
             // Act
-            var result = _customerController.Post(customerViewModel);
+            var result = _customerController.Post(createCustomerViewModel);
 
             // Assert
-            Assert.IsType<CreatedAtRouteResult>(result);
-            var createdResult = result as CreatedAtRouteResult;
+            Assert.IsType<CreatedAtActionResult>(result);
+            var createdResult = result as CreatedAtActionResult;
             Assert.Equal(customerGuid, createdResult.RouteValues["id"]);            
         }
 
@@ -59,7 +69,7 @@ namespace MrGreen.Tests.API
             var notFoundResult = _customerController.Get(Guid.NewGuid());
 
             // Assert
-            Assert.IsType<NotFoundResult>(notFoundResult.Result);
+            Assert.IsType<NotFoundResult>(notFoundResult);
         }
 
         [Fact]
@@ -82,7 +92,7 @@ namespace MrGreen.Tests.API
             var okResult = _customerController.Get(customerGuid);
 
             // Assert
-            Assert.IsType<OkObjectResult>(okResult.Result);
+            Assert.IsType<OkObjectResult>(okResult);
         }
 
         [Fact]

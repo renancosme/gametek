@@ -5,7 +5,7 @@ namespace MrGreen.Application.Services.Interfaces
 {
     public interface ICustomerAppService
     {
-        void Add(CustomerViewModel customerViewModel);
+        CustomerViewModel Add(CreateCustomerViewModel createCustomerViewModel);
 
         CustomerViewModel GetById(Guid id);
 
