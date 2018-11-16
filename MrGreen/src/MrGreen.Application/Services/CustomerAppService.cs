@@ -1,6 +1,7 @@
 ﻿using MrGreen.Application.Repository;
 using MrGreen.Application.Services.Interfaces;
 using MrGreen.Application.ViewModels;
+using MrGreen.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,9 +26,10 @@ namespace MrGreen.Application.Services
                                 customerViewModel.PersonalNumber);
 
             // Only to initial tests
-            if (!customer.IsValid()) throw new Exception(customer.ValidationResult.Errors[0].ErrorMessage);
+            if (!customer.IsValid()) throw new DomainException(customer.ValidationResult);
 
             _customerRepository.Add(customer);
+            // Commit pending for all operations
         }
         
         public CustomerViewModel GetById(Guid id)
@@ -58,7 +60,7 @@ namespace MrGreen.Application.Services
             customer.PersonalNumber = customerViewModel.PersonalNumber;
 
             // Only to initial tests
-            if (!customer.IsValid()) throw new Exception(customer.ValidationResult.Errors[0].ErrorMessage);
+            if (!customer.IsValid()) throw new DomainException(customer.ValidationResult);
 
             _customerRepository.Update(customer);
         }

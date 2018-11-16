@@ -2,6 +2,7 @@
 using MrGreen.Application.Repository;
 using MrGreen.Application.Services;
 using MrGreen.Application.Services.Interfaces;
+using MrGreen.Infra.Data.Context;
 using MrGreen.Infra.Data.Repository;
 using System;
 
@@ -16,6 +17,7 @@ namespace MrGreen.Infra.CrossCutting.IoC
 
             // Infra - Data
             services.AddScoped<ICustormerRepository, CustomerRepository>();
+            services.AddScoped<CustomerContext>();
         }
     }
 }
