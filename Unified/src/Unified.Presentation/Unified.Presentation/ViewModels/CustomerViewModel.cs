@@ -8,6 +8,10 @@ namespace Unified.Presentation.ViewModels
 {
     public class CustomerViewModel
     {
+        public CustomerViewModel()
+        {
+        }
+
         public CustomerViewModel(Guid id, string firstName, string lastName, string address, string personalNumber)
         {
             Id = id;
@@ -36,13 +40,15 @@ namespace Unified.Presentation.ViewModels
         [MaxLength(150, ErrorMessage = "The maximum address size is {1}")]
         [Display(Name = "Address:")]
         public string Address { get; set; }
-
-        [Required(ErrorMessage = "The personal number should be informed")]
+                
         [MinLength(9, ErrorMessage = "The minimum size of the personal number is {1}")]
         [MaxLength(10, ErrorMessage = "The maximum personal number size is {1}")]
         [Display(Name = "Personal number:")]
         public string PersonalNumber { get; set; }
-
+                
+        [MinLength(2, ErrorMessage = "The minimum size of the Favorite Football Team is {1}")]
+        [MaxLength(150, ErrorMessage = "The maximum Favorite Football Team size is {1}")]
+        [Display(Name = "Favorite Football Team:")]
         public string FavoriteFootballTeam { get; set; }
     }
 }

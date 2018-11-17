@@ -30,6 +30,8 @@ namespace Unified.Presentation.Controllers
                 customersToReturn.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName, customer.Address, customer.PersonalNumber));
             }
 
+            // TODO: Add the redbet customers!!!
+
             return View(customersToReturn);
         }
 
@@ -49,28 +51,34 @@ namespace Unified.Presentation.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerViewModel customerViewModel)
-        {
-            try
+        {            
+            if(!string.IsNullOrEmpty(customerViewModel.PersonalNumber))
             {
-                // TODO: Add insert logic here
-                if(!string.IsNullOrEmpty(customerViewModel.PersonalNumber))
+                MrgreenCustomer mrgreenCustomer = new MrgreenCustomer {
+                    FirstName = customerViewModel.FirstName,
+                    LastName = customerViewModel.LastName,
+                    Address = customerViewModel.Address,
+                    PersonalNumber = customerViewModel.PersonalNumber
+                };
+
+                return RedirectToAction("Create", "MrgreenCustomer", mrgreenCustomer);                    
+            }
+            else if(!string.IsNullOrEmpty(customerViewModel.FavoriteFootballTeam))
+            {
+                RedbetCustomer redbetCustomer = new RedbetCustomer
                 {
-                    MrgreenCustomer mrgreenCustomer = new MrgreenCustomer {
-                        FirstName = customerViewModel.FirstName,
-                        LastName = customerViewModel.LastName,
-                        Address = customerViewModel.Address,
-                        PersonalNumber = customerViewModel.PersonalNumber
-                    };
+                    FirstName = customerViewModel.FirstName,
+                    LastName = customerViewModel.LastName,
+                    Address = customerViewModel.Address,
+                    FavoriteFootballTeam = customerViewModel.FavoriteFootballTeam
+                };
 
-                    return RedirectToAction("Create", "MrgreenCustomer", mrgreenCustomer);                    
-                }
+                return RedirectToAction("Create", "RedbetCustomer", redbetCustomer);
+            }
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            ModelState.AddModelError("CustomerType", "Personal Number or Favorite Football Team should be informed");
+
+            return View(customerViewModel);            
         }
 
         //// GET: Customer/Edit/5
