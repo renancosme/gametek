@@ -1,7 +1,8 @@
 ﻿using System;
 using FluentValidation;
+using Redbet.Domain.Core.Models;
 
-namespace Redbet.Domain.Models
+namespace Redbet.Domain.Models.Customer
 {
     public class Customer : Entity<Customer>
     {
@@ -13,11 +14,8 @@ namespace Redbet.Domain.Models
             Address = address;
             FavoriteFootballTeam = favoriteFootballTeam;
         }
-
-        // Constructor for EF
-        protected Customer()
-        {
-        }
+        
+        private Customer() { }
 
         public string FirstName { get; private set; }
 
@@ -71,6 +69,27 @@ namespace Redbet.Domain.Models
                 .NotEmpty()
                 .WithMessage("The Favorite Football Team should be informed")
                 .Length(2, 150).WithMessage("The Favorite Football Team should be between 2 and 150 characters");
+        }
+
+        #endregion
+
+        #region Factory
+
+        public static class CustomerFactory
+        {
+            public static Customer NewCompleteCustomer(Guid id, string firstName, string lastName, string address, string favoriteFootballTeam)
+            {
+                var customer = new Customer()
+                {
+                    Id = id,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Address = address,
+                    FavoriteFootballTeam = favoriteFootballTeam
+                };
+
+                return customer;
+            }
         }
 
         #endregion

@@ -13,11 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Application", "2- Application", "{D518D54B-6D29-490A-A4DB-BEDD7F75572A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redbet.Domain", "src\Redbet.Domain\Redbet.Domain.csproj", "{3181537C-B599-4D19-8F67-724D475B6946}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redbet.Domain", "src\Redbet.Domain\Redbet.Domain.csproj", "{3181537C-B599-4D19-8F67-724D475B6946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redbet.Api", "src\Redbet.Api\Redbet.Api.csproj", "{4F77736D-8B0F-4478-81F3-A57917DA7575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redbet.Api", "src\Redbet.Api\Redbet.Api.csproj", "{4F77736D-8B0F-4478-81F3-A57917DA7575}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5- Tests", "5- Tests", "{0C0B360C-E5BC-4B64-AAD6-C0E302A2A048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redbet.Domain.Core", "src\Redbet.Domain.Core\Redbet.Domain.Core.csproj", "{81A4D1FD-CAFF-4747-96AF-37BC5F73BF53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Testing", "Console.Testing\Console.Testing.csproj", "{78DA5A6C-418D-40B3-BB99-233B4C1359B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{4F77736D-8B0F-4478-81F3-A57917DA7575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F77736D-8B0F-4478-81F3-A57917DA7575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F77736D-8B0F-4478-81F3-A57917DA7575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A4D1FD-CAFF-4747-96AF-37BC5F73BF53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A4D1FD-CAFF-4747-96AF-37BC5F73BF53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A4D1FD-CAFF-4747-96AF-37BC5F73BF53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A4D1FD-CAFF-4747-96AF-37BC5F73BF53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78DA5A6C-418D-40B3-BB99-233B4C1359B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78DA5A6C-418D-40B3-BB99-233B4C1359B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78DA5A6C-418D-40B3-BB99-233B4C1359B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78DA5A6C-418D-40B3-BB99-233B4C1359B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +53,8 @@ Global
 		{09D2771F-B934-4076-9A4E-96C1E3140918} = {02074C98-41B2-4A0F-8DF5-E0F8EB75DE1A}
 		{3181537C-B599-4D19-8F67-724D475B6946} = {75D2A354-345A-4D13-AAF1-6777D4FEE714}
 		{4F77736D-8B0F-4478-81F3-A57917DA7575} = {C3213805-58DA-4FB0-B668-11FD7322E947}
+		{81A4D1FD-CAFF-4747-96AF-37BC5F73BF53} = {75D2A354-345A-4D13-AAF1-6777D4FEE714}
+		{78DA5A6C-418D-40B3-BB99-233B4C1359B6} = {0C0B360C-E5BC-4B64-AAD6-C0E302A2A048}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {142711BC-E76B-4B29-AE33-265B42F62605}

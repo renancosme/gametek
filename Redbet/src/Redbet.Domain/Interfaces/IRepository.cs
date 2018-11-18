@@ -1,4 +1,4 @@
-﻿using Redbet.Domain.Models;
+﻿using Redbet.Domain.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;

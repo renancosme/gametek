@@ -8,8 +8,4 @@
     <PackageReference Include="FluentValidation" Version="8.0.100" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Redbet.Domain.Core\Redbet.Domain.Core.csproj" />
-  </ItemGroup>
-
 </Project>
