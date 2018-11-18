@@ -25,6 +25,13 @@ namespace Redbet.Domain.Models.Customer
 
         public string FavoriteFootballTeam { get; private set; }
 
+        public bool Removed { get; private set; }
+
+        public void RemoveCustomer()
+        {
+            Removed = true;
+        }
+
         #region Validations
 
         public override bool IsValid()
@@ -44,7 +51,7 @@ namespace Redbet.Domain.Models.Customer
             RuleFor(c => c.FirstName)
                 .NotEmpty()
                 .WithMessage("The first name should be informed")
-                .Length(2, 150).WithMessage("The first name should be between 2 and 150 characters");
+                .Length(2, 50).WithMessage("The first name should be between 2 and 50 characters");
         }
 
         private void LastNameValidate()
@@ -52,7 +59,7 @@ namespace Redbet.Domain.Models.Customer
             RuleFor(c => c.LastName)
                 .NotEmpty()
                 .WithMessage("The last name should be informed")
-                .Length(2, 150).WithMessage("The last name should be between 2 and 150 characters");
+                .Length(2, 50).WithMessage("The last name should be between 2 and 50 characters");
         }
 
         private void AddressValidate()
@@ -68,8 +75,8 @@ namespace Redbet.Domain.Models.Customer
             RuleFor(c => c.FavoriteFootballTeam)
                 .NotEmpty()
                 .WithMessage("The Favorite Football Team should be informed")
-                .Length(2, 150).WithMessage("The Favorite Football Team should be between 2 and 150 characters");
-        }
+                .Length(2, 50).WithMessage("The Favorite Football Team should be between 2 and 50 characters");
+        }        
 
         #endregion
 
