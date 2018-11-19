@@ -13,6 +13,7 @@ namespace Redbet.Domain.Models.Customers
             LastName = lastName;
             Address = address;
             FavoriteFootballTeam = favoriteFootballTeam;
+            Removed = false;
         }
         
         private Customer() { }

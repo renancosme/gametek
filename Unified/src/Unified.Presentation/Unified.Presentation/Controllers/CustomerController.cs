@@ -13,24 +13,30 @@ namespace Unified.Presentation.Controllers
     public class CustomerController : Controller
     {
         private readonly IMrgreenAdapter _mrgreenAdapter;
+        private readonly IRedbetAdapter _redbetAdapter;
 
-        public CustomerController(IMrgreenAdapter mrgreenAdapter)
+        public CustomerController(IMrgreenAdapter mrgreenAdapter, IRedbetAdapter redbetAdapter)
         {
             _mrgreenAdapter = mrgreenAdapter;
+            _redbetAdapter = redbetAdapter;
         }
 
         // GET: Customer/Index
         public ActionResult Index()
         {
-            var customers = _mrgreenAdapter.GetAll();
+            var customersMrgreen = _mrgreenAdapter.GetAll();
+            var customersRedbet = _redbetAdapter.GetAll();
 
             var customersToReturn = new List<CustomerViewModel>();
-            foreach (var customer in customers)
+            foreach (var customer in customersMrgreen)
             {
-                customersToReturn.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName, customer.Address, customer.PersonalNumber));
+                customersToReturn.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName, customer.Address, customer.PersonalNumber, null));
             }
 
-            // TODO: Add the redbet customers!!!
+            foreach (var customer in customersRedbet)
+            {
+                customersToReturn.Add(new CustomerViewModel(customer.Id, customer.FirstName, customer.LastName, customer.Address, null, customer.FavoriteFootballTeam));
+            }
 
             return View(customersToReturn);
         }

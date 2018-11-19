@@ -13,7 +13,8 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "MrgreenUrl": "https://localhost:5001/"
+        "MrgreenUrl": "https://localhost:5001/",
+        "RedbetUrl": "https://localhost:44340/"
       }
     },
     "Unified.Presentation": {
@@ -22,7 +23,8 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "MrgreenUrl": "https://localhost:5001/"
+        "MrgreenUrl": "https://localhost:5001/",
+        "RedbetUrl": "https://localhost:44340/"
       }
     }
   }

@@ -1,21 +1,19 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
-using MrGreen.Application.Services.Interfaces;
-using MrGreen.Application.ViewModels;
-using MrGreen.Domain.Exceptions;
+using Redbet.Application.Interfaces;
+using Redbet.Application.ViewModels;
 
-namespace MrGreen.Api.Controllers
+namespace Redbet.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class CustomersController : ControllerBase
     {
-        private readonly ICustomerAppService _eventoAppService;
+        private readonly ICustomerAppService _customerAppService;
 
-        public CustomerController(ICustomerAppService eventoAppService)
+        public CustomersController(ICustomerAppService customerAppService)
         {
-            _eventoAppService = eventoAppService;
+            _customerAppService = customerAppService;
         }
 
         // GET api/customers/
@@ -27,7 +25,7 @@ namespace MrGreen.Api.Controllers
         [HttpGet()]
         public ActionResult Get()
         {
-            var customers = _eventoAppService.GetAll();
+            var customers = _customerAppService.GetAll();
             return Ok(customers);
         }
 
@@ -43,7 +41,7 @@ namespace MrGreen.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult Get(Guid id)
         {
-            var customer = _eventoAppService.GetById(id);
+            var customer = _customerAppService.GetById(id);
 
             if (customer == null) return NotFound();
 
@@ -55,26 +53,18 @@ namespace MrGreen.Api.Controllers
         /// Creates a Customer.
         /// </summary>
         /// <param name="createCustomerViewModel">The Customer to create</param>
-        /// <response code="201">Returns the newly created Customer</response>
+        /// <response code="202">The newly created Customer was accepted</response>
         /// <response code="400">If the customerViewModel is null</response> 
-        [ProducesResponseType(201)]
+        [ProducesResponseType(202)]
         [ProducesResponseType(400)]
-        [ProducesResponseType(typeof(ValidationResult), 400)]
         [HttpPost]
         public ActionResult Post([FromBody] CreateCustomerViewModel createCustomerViewModel)
         {
-            try
-            {
-                if (createCustomerViewModel == null) return BadRequest();
+            if (createCustomerViewModel == null) return BadRequest();
 
-                var newCustomerViewModel = _eventoAppService.Add(createCustomerViewModel);
+            _customerAppService.Add(createCustomerViewModel);
 
-                return CreatedAtAction("Get", new { id = newCustomerViewModel.Id }, newCustomerViewModel);
-            }
-            catch (DomainException ex)
-            {
-                return BadRequest(ex.Errors);
-            }            
+            return Accepted();
         }
 
         // PUT api/customers/5
@@ -93,11 +83,11 @@ namespace MrGreen.Api.Controllers
         {
             if (customerViewModel == null) return BadRequest();
 
-            var customer = _eventoAppService.GetById(customerViewModel.Id);
+            var customer = _customerAppService.GetById(customerViewModel.Id);
 
             if (customer == null) return NotFound();
 
-            _eventoAppService.Update(customerViewModel);
+            _customerAppService.Update(customerViewModel);
 
             return NoContent();
         }
@@ -114,11 +104,11 @@ namespace MrGreen.Api.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(Guid id)
         {
-            var customer = _eventoAppService.GetById(id);
+            var customer = _customerAppService.GetById(id);
 
             if (customer == null) return NotFound();
 
-            _eventoAppService.Remove(id);
+            _customerAppService.Remove(id);
 
             return NoContent();
         }

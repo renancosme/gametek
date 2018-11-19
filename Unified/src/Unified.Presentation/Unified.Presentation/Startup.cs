@@ -8,6 +8,7 @@ using Unified.Domain.Interfaces;
 using Unified.Infra.MrgreenAdapter;
 using Unified.Presentation.AutoMapper;
 using AutoMapper;
+using Unified.Infra.RedbetAdapter;
 
 namespace Unified.Presentation
 {
@@ -44,8 +45,12 @@ namespace Unified.Presentation
                     Configuration.GetValue<string>("MrgreenUrl")
                 ));
 
+            services.AddScoped<IRedbetAdapterSettings>(c => new RedbetAdapterSettings(
+                    Configuration.GetValue<string>("RedbetUrl")
+                ));
+            
             services.AddScoped<IMrgreenAdapter, MrgreenAdapter>();
-            //services.AddScoped<IRedbetAdapter, RedbetAdapter>();
+            services.AddScoped<IRedbetAdapter, RedbetAdapter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

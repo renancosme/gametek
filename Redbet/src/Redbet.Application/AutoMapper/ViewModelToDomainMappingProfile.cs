@@ -8,7 +8,7 @@ namespace Redbet.Application.AutoMapper
     {
         public ViewModelToDomainMappingProfile()
         {
-            CreateMap<CustomerViewModel, AddCustomerCommand>()
+            CreateMap<CreateCustomerViewModel, AddCustomerCommand>()
                 .ConstructUsing(c => new AddCustomerCommand(c.FirstName, c.LastName, c.Address, c.FavoriteFootballTeam));
 
             CreateMap<CustomerViewModel, UpdateCustomerCommand>()

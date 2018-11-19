@@ -22,9 +22,9 @@ namespace Redbet.Application.Services
             _customerRepository = customerRepository;
         }
 
-        public void Add(CustomerViewModel customerViewModel)
+        public void Add(CreateCustomerViewModel createCustomerViewModel)
         {
-            var addingCustomerCommand = _mapper.Map<AddCustomerCommand>(customerViewModel);
+            var addingCustomerCommand = _mapper.Map<AddCustomerCommand>(createCustomerViewModel);
             _bus.SendCommand(addingCustomerCommand);
         }
 

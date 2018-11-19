@@ -5,8 +5,10 @@ using Unified.Domain.Model;
 
 namespace Unified.Domain.Interfaces
 {
-    public interface IRedbetAdapeter
+    public interface IRedbetAdapter
     {
+        IEnumerable<RedbetCustomer> GetAll();
+
         RedbetCustomer GetCustomer(Guid customerId);
 
         void AddCustomer(RedbetCustomer customer);

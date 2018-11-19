@@ -17,4 +17,6 @@
     <ProjectReference Include="..\..\Unified.Infra.RedbetAdapter\Unified.Infra.RedbetAdapter.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties Properties_4launchSettings_1json__JSONSchema="http://json.schemastore.org/clasp" /></VisualStudio></ProjectExtensions>
+
 </Project>

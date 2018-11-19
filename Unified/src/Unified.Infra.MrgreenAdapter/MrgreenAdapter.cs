@@ -25,7 +25,7 @@ namespace Unified.Infra.MrgreenAdapter
                 httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
                 var json = JsonConvert.SerializeObject(customer);
                 var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = httpClient.PostAsync($"api/customer/", stringContent).Result;
+                var response = httpClient.PostAsync($"api/customers/", stringContent).Result;
 
                 if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
@@ -39,7 +39,7 @@ namespace Unified.Infra.MrgreenAdapter
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
-                var response = httpClient.GetAsync($"api/customer/").Result;
+                var response = httpClient.GetAsync($"api/customers/").Result;
                 var data = response.Content.ReadAsStringAsync().Result;
                 
                 return JsonConvert.DeserializeObject<IEnumerable<MrgreenCustomer>>(data);
@@ -51,7 +51,7 @@ namespace Unified.Infra.MrgreenAdapter
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
-                var response = httpClient.GetAsync($"api/customer/{customerId}").Result;
+                var response = httpClient.GetAsync($"api/customers/{customerId}").Result;
                 var data = response.Content.ReadAsStringAsync().Result;
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -68,7 +68,7 @@ namespace Unified.Infra.MrgreenAdapter
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
-                var response = httpClient.DeleteAsync($"api/customer/{customerId}").Result;
+                var response = httpClient.DeleteAsync($"api/customers/{customerId}").Result;
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
@@ -84,7 +84,7 @@ namespace Unified.Infra.MrgreenAdapter
                 httpClient.BaseAddress = new Uri(_mrgreenAdapterSettings.MrgreenUrl);
                 var json = JsonConvert.SerializeObject(customer);
                 var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = httpClient.PutAsync($"api/customer/", stringContent).Result;
+                var response = httpClient.PutAsync($"api/customers/", stringContent).Result;
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {

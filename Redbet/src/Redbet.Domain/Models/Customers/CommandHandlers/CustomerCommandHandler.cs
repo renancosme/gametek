@@ -56,7 +56,7 @@ namespace Redbet.Domain.Models.Customers.CommandHandlers
             if (!IsValidCustomer(customer)) return;
 
             // Persistency
-            _customerRepository.Add(customer);
+            _customerRepository.Update(customer);
 
             if (Commit())
             {

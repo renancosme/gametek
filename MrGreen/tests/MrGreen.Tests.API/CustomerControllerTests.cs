@@ -12,12 +12,12 @@ namespace MrGreen.Tests.API
     public class CustomerControllerTests
     {
         Mock<ICustomerAppService> _mockCustomerAppService;
-        CustomerController _customerController;
+        CustomersController _customerController;
 
         public CustomerControllerTests()
         {
             _mockCustomerAppService = new Mock<ICustomerAppService>();
-            _customerController = new CustomerController(_mockCustomerAppService.Object);
+            _customerController = new CustomersController(_mockCustomerAppService.Object);
         }
 
         [Fact]

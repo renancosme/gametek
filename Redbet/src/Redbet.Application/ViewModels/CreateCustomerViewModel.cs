@@ -1,26 +1,17 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Unified.Presentation.ViewModels
+namespace Redbet.Application.ViewModels
 {
-    public class CustomerViewModel
-    {
-        public CustomerViewModel()
+    public class CreateCustomerViewModel
+    {        
+        public CreateCustomerViewModel( string firstName, string lastName, string address, string favoriteFootballTeam)
         {
-        }
-
-        public CustomerViewModel(Guid id, string firstName, string lastName, string address, string personalNumber, string favoriteFootballTeam)
-        {
-            Id = id;
             FirstName = firstName;
             LastName = lastName;
             Address = address;
-            PersonalNumber = personalNumber;
             FavoriteFootballTeam = favoriteFootballTeam;
         }
-
-        public Guid Id { get; set; }
-
+        
         [Required(ErrorMessage = "The first name should be informed")]
         [MinLength(2, ErrorMessage = "The minimum size of the first name is {1}")]
         [MaxLength(50, ErrorMessage = "The maximum fist name size is {1}")]
@@ -38,12 +29,7 @@ namespace Unified.Presentation.ViewModels
         [MaxLength(150, ErrorMessage = "The maximum address size is {1}")]
         [Display(Name = "Address:")]
         public string Address { get; set; }
-                
-        [MinLength(9, ErrorMessage = "The minimum size of the personal number is {1}")]
-        [MaxLength(10, ErrorMessage = "The maximum personal number size is {1}")]
-        [Display(Name = "Personal number:")]
-        public string PersonalNumber { get; set; }
-                
+
         [MinLength(2, ErrorMessage = "The minimum size of the Favorite Football Team is {1}")]
         [MaxLength(50, ErrorMessage = "The maximum Favorite Football Team size is {1}")]
         [Display(Name = "Favorite Football Team:")]

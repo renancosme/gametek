@@ -7,7 +7,7 @@ namespace Redbet.Application.Interfaces
 {
     public interface ICustomerAppService : IDisposable
     {
-        void Add(CustomerViewModel createCustomerViewModel);
+        void Add(CreateCustomerViewModel createCustomerViewModel);
 
         CustomerViewModel GetById(Guid id);
 
