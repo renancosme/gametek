@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Testing", "Console.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redbet.Infra.Data", "src\Redbet.Infra.Data\Redbet.Infra.Data.csproj", "{58A05677-4CCD-4284-B809-9045BFEA5243}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redbet.Application", "src\Redbet.Application\Redbet.Application.csproj", "{1911D77F-8E91-4CCA-B6EA-01F8CDEA2647}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{58A05677-4CCD-4284-B809-9045BFEA5243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A05677-4CCD-4284-B809-9045BFEA5243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A05677-4CCD-4284-B809-9045BFEA5243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1911D77F-8E91-4CCA-B6EA-01F8CDEA2647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1911D77F-8E91-4CCA-B6EA-01F8CDEA2647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1911D77F-8E91-4CCA-B6EA-01F8CDEA2647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1911D77F-8E91-4CCA-B6EA-01F8CDEA2647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{81A4D1FD-CAFF-4747-96AF-37BC5F73BF53} = {75D2A354-345A-4D13-AAF1-6777D4FEE714}
 		{78DA5A6C-418D-40B3-BB99-233B4C1359B6} = {0C0B360C-E5BC-4B64-AAD6-C0E302A2A048}
 		{58A05677-4CCD-4284-B809-9045BFEA5243} = {09D2771F-B934-4076-9A4E-96C1E3140918}
+		{1911D77F-8E91-4CCA-B6EA-01F8CDEA2647} = {D518D54B-6D29-490A-A4DB-BEDD7F75572A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {142711BC-E76B-4B29-AE33-265B42F62605}

@@ -1,7 +1,7 @@
 ﻿using Redbet.Domain.Core.Commands;
 using System;
 
-namespace Redbet.Domain.Models.Customer.Commands
+namespace Redbet.Domain.Models.Customers.Commands
 {
     public abstract class BaseCustomerCommand : Command
     {

@@ -3,12 +3,12 @@ using Redbet.Domain.Core.Bus;
 using Redbet.Domain.Core.Events;
 using Redbet.Domain.Core.Notifications;
 using Redbet.Domain.Interfaces;
-using Redbet.Domain.Models.Customer.Commands;
-using Redbet.Domain.Models.Customer.Events;
-using Redbet.Domain.Models.Customer.Repository;
+using Redbet.Domain.Models.Customers.Commands;
+using Redbet.Domain.Models.Customers.Events;
+using Redbet.Domain.Models.Customers.Repository;
 using System;
 
-namespace Redbet.Domain.Models.Customer.CommandHandlers
+namespace Redbet.Domain.Models.Customers.CommandHandlers
 {
     public class CustomerCommandHandler : CommandHandler,
         IHandler<AddCustomerCommand>,

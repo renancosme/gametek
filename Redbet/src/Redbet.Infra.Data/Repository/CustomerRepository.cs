@@ -1,9 +1,6 @@
-﻿using Redbet.Domain.Models.Customer;
-using Redbet.Domain.Models.Customer.Repository;
+﻿using Redbet.Domain.Models.Customers;
+using Redbet.Domain.Models.Customers.Repository;
 using Redbet.Infra.Data.Context;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Redbet.Infra.Data.Repository
 {

@@ -19,7 +19,7 @@ namespace Redbet.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Redbet.Domain.Models.Customer.Customer", b =>
+            modelBuilder.Entity("Redbet.Domain.Models.Customers.Customer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();

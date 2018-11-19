@@ -1,7 +1,7 @@
 ﻿using Redbet.Domain.Core.Events;
 using System;
 
-namespace Redbet.Domain.Models.Customer.Events
+namespace Redbet.Domain.Models.Customers.Events
 {
     public abstract class BaseCustomerEvent : Event
     {

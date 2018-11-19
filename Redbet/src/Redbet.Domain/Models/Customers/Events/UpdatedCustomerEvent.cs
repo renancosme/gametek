@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Redbet.Domain.Models.Customer.Events
+namespace Redbet.Domain.Models.Customers.Events
 {
     public class UpdatedCustomerEvent : BaseCustomerEvent
     {

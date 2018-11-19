@@ -1,4 +1,4 @@
-﻿namespace Redbet.Domain.Models.Customer.Commands
+﻿namespace Redbet.Domain.Models.Customers.Commands
 {
     public class AddCustomerCommand : BaseCustomerCommand
     {

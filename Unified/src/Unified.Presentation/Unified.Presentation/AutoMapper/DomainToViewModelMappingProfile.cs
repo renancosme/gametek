@@ -4,9 +4,9 @@ using Unified.Presentation.ViewModels;
 
 namespace Unified.Presentation.AutoMapper
 {
-    public class ViewModelToDomainMappingProfile : Profile
+    public class DomainToViewModelMappingProfile : Profile
     {
-        public ViewModelToDomainMappingProfile()
+        public DomainToViewModelMappingProfile()
         {
             CreateMap<Customer, MrgreenCustomerViewModel>();
         }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Redbet.Domain.Models.Customer;
+using Redbet.Domain.Models.Customers;
 
 namespace Redbet.Infra.Data.Mappings
 {

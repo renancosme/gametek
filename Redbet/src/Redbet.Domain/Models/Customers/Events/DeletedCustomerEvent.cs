@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Redbet.Domain.Models.Customer.Events
+namespace Redbet.Domain.Models.Customers.Events
 {
     public class DeletedCustomerEvent : BaseCustomerEvent
     {

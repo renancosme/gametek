@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Redbet.Domain.Models.Customer.Commands
+namespace Redbet.Domain.Models.Customers.Commands
 {
     public class UpdateCustomerCommand : BaseCustomerCommand
     {

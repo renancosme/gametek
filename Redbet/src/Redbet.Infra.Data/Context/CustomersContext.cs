@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Redbet.Domain.Models.Customer;
+using Redbet.Domain.Models.Customers;
 using Redbet.Infra.Data.Mappings;
 using System;
 using System.Collections.Generic;

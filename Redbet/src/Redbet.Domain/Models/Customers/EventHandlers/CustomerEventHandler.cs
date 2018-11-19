@@ -1,8 +1,8 @@
 ﻿using Redbet.Domain.Core.Events;
-using Redbet.Domain.Models.Customer.Events;
+using Redbet.Domain.Models.Customers.Events;
 using System;
 
-namespace Redbet.Domain.Models.Customer.EventHandlers
+namespace Redbet.Domain.Models.Customers.EventHandlers
 {
     public class CustomerEventHandler :
         IHandler<AddedCustomerEvent>,

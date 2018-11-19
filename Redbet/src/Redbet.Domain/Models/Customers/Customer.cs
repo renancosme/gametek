@@ -2,7 +2,7 @@
 using FluentValidation;
 using Redbet.Domain.Core.Models;
 
-namespace Redbet.Domain.Models.Customer
+namespace Redbet.Domain.Models.Customers
 {
     public class Customer : Entity<Customer>
     {
